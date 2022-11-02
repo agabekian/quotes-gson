@@ -22,15 +22,15 @@ public class App {
 //        System.out.println(new App().getGreeting());
         try
         {
-            istatic Gson gson = new Gson();  // create gson instance
+            Gson gson = new Gson();  // create gson instance
             Reader reader = Files.newBufferedReader(Paths.get("recentquotes.json")); //create a reader ?
+            ArrayList<Quote> allQuotes = new ArrayList<>();
+            Quote  quote = new Quote();
+            String newQuote = gson.fromJson(quote.text);
         }
-        catch (Exception )
-        ArrayList<Quote> quotes = new ArrayList<>();
-        Quote  quote = new Quote();
-
-        String newQuote = gson.fromJson(quote.text);
-
+        catch (Exception ex){
+            ex.printStackTrace();
+        }
 
     }
 }
