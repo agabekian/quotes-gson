@@ -17,22 +17,15 @@ public class App {
 
     public static void main(String[] args) {
 //        System.out.println(new App().getGreeting());
-        try
-        {
+        try {
             Gson gson = new Gson();  // create gson instance
             Reader reader = Files.newBufferedReader(Paths.get("./app/src/main/resources/recentquotes.json")); //create a reader ?
 
             Quote[] allQuotes = gson.fromJson(reader, Quote[].class);
             QuoteLib quotesLibrary = new QuoteLib(allQuotes);
-            System.out.println("moving on");
-//            for(Quote qt : allQuotes){
-//                System.out.println(qt.text);
-//            }
+            System.out.println(quotesLibrary.displayQuote());
 
-//            Quote  quote = new Quote();
-//            String newQuote = gson.fromJson(quote.text);
-        }
-        catch (Exception ex){
+        } catch (Exception ex) {
             ex.printStackTrace();
         }
 
