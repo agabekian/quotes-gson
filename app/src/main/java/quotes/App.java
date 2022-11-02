@@ -8,9 +8,6 @@ import com.google.gson.Gson;
 import java.io.Reader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
-import com.google.gson.Gson;
 
 
 public class App {
@@ -23,10 +20,17 @@ public class App {
         try
         {
             Gson gson = new Gson();  // create gson instance
-            Reader reader = Files.newBufferedReader(Paths.get("recentquotes.json")); //create a reader ?
-            ArrayList<Quote> allQuotes = new ArrayList<>();
-            Quote  quote = new Quote();
-            String newQuote = gson.fromJson(quote.text);
+            Reader reader = Files.newBufferedReader(Paths.get("./app/src/main/resources/recentquotes.json")); //create a reader ?
+
+            Quote[] allQuotes = gson.fromJson(reader, Quote[].class);
+            QuoteLib quotesLibrary = new QuoteLib(allQuotes);
+            System.out.println("moving on");
+//            for(Quote qt : allQuotes){
+//                System.out.println(qt.text);
+//            }
+
+//            Quote  quote = new Quote();
+//            String newQuote = gson.fromJson(quote.text);
         }
         catch (Exception ex){
             ex.printStackTrace();
